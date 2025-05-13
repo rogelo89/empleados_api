@@ -1,0 +1,9 @@
+APIEmpleados_SECRET_KEY = Clave secreta del proyecto
+APIEmpleados_DEBUG = False
+APIEmpleados_DB_HOST = IP del servidor de base de datos
+APIEmpleados_DB_NAME = Nombre de la base de datos
+APIEmpleados_DB_USER = usuario de conexion
+APIEmpleados_DB_PASSWORD = Contraseña
+APIEmpleados_DB_DRIVER = ODBC Driver 17 for SQL Server (Ajustar al driver instalado)
+APIEmpleados_REDIS_URL = URL del servidor Redis
+APIEmpleados_LOG_PATH = C:/Ruta del fichero/name_project.log
