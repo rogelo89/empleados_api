@@ -34,6 +34,33 @@ class RH_Plantilla(models.Model):
         unique_together = (('Nivel', 'Id_Direccion'),)
 
 
+class RH_Cargos(models.Model):
+    Id_Cargo = models.CharField(max_length=5, primary_key=True)
+    Desc_Cargo = models.CharField(max_length=120)
+
+    class Meta:
+        db_table = 'RH_Cargos'
+        managed = False
+
+
+class RH_Categorias_Docente_Invest(models.Model):
+    Id_Categoria_DI = models.CharField(max_length=5, primary_key=True)
+    Desc_Categoria_DI = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'RH_Categorias_Docente_Invest'
+        managed = False
+
+
+class RH_Grados_Cientificos(models.Model):
+    Id_Grado_Cientifico = models.CharField(max_length=5, primary_key=True)
+    Desc_Grado_Cientifico = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'RH_Grados_Cientificos'
+        managed = False
+
+
 class Empleados_Gral(models.Model):
     Id_Empleado = models.CharField(max_length=15, primary_key=True)
     No_CI = models.CharField(max_length=15)
@@ -41,12 +68,15 @@ class Empleados_Gral(models.Model):
     Apellido_1 = models.CharField(max_length=50)
     Baja = models.BooleanField()
     Alta = models.BooleanField()
+    Id_Cargo = models.CharField(max_length=5)
     Id_Direccion = models.CharField(max_length=15)
     Sexo = models.CharField(max_length=1)
     Id_Provincia = models.CharField(max_length=5)
     Id_Municipio = models.CharField(max_length=5)
     Docente = models.BooleanField()
+    Id_Categoria_DI = models.CharField(max_length=5)
     Apellido_2 = models.CharField(max_length=50)
+    Id_Grado_Cientifico = models.CharField(max_length=5)
 
     class Meta:
         db_table = 'Empleados_Gral'

@@ -49,11 +49,17 @@ def get_empleados():
         e.*,
         p.Desc_Provincia,
         m.Desc_Municipio,
-        pl.Desc_Direccion
+        pl.Desc_Direccion,
+        c.Desc_Cargo,
+        cdi.Desc_Categoria_DI,
+        gc.Desc_Grado_Cientifico
     FROM Empleados_Gral e
     LEFT JOIN RH_Provincias p ON e.Id_Provincia = p.Id_Provincia
     LEFT JOIN RH_Municipios m ON e.Id_Provincia = m.Id_Provincia AND e.Id_Municipio = m.Id_Municipio
     LEFT JOIN RH_Plantilla pl ON e.Id_Direccion = pl.Id_Direccion
+    LEFT JOIN RH_Cargos c ON e.Id_Cargo = c.Id_Cargo
+    LEFT JOIN RH_Categorias_Docente_Invest cdi ON e.Id_Categoria_DI = cdi.Id_Categoria_DI
+    LEFT JOIN RH_Grados_Cientificos gc ON e.Id_Grado_Cientifico = gc.Id_Grado_Cientifico
     """
     return execute_query(query)
 
@@ -64,11 +70,17 @@ def get_empleado_by_id(empleado_id):
         e.*,
         p.Desc_Provincia,
         m.Desc_Municipio,
-        pl.Desc_Direccion
+        pl.Desc_Direccion,
+        c.Desc_Cargo,
+        cdi.Desc_Categoria_DI,
+        gc.Desc_Grado_Cientifico
     FROM Empleados_Gral e
     LEFT JOIN RH_Provincias p ON e.Id_Provincia = p.Id_Provincia
     LEFT JOIN RH_Municipios m ON e.Id_Provincia = m.Id_Provincia AND e.Id_Municipio = m.Id_Municipio
     LEFT JOIN RH_Plantilla pl ON e.Id_Direccion = pl.Id_Direccion
+    LEFT JOIN RH_Cargos c ON e.Id_Cargo = c.Id_Cargo
+    LEFT JOIN RH_Categorias_Docente_Invest cdi ON e.Id_Categoria_DI = cdi.Id_Categoria_DI
+    LEFT JOIN RH_Grados_Cientificos gc ON e.Id_Grado_Cientifico = gc.Id_Grado_Cientifico
     WHERE e.Id_Empleado = ?
     """
     results = execute_query(query, (empleado_id,))
