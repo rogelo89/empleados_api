@@ -152,6 +152,8 @@ REST_FRAMEWORK = {
 # Lista de IPs permitidas
 ALLOWED_IPS = [
     '127.0.0.1',      # Localhost
+    'localhost',      # Localhost
+    '10.32.2.103',    # IP local
     '10.32.2.9',
     '10.32.2.2',
     '200.14.55.141',
